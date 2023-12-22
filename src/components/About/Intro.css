@@ -1,0 +1,17 @@
+/* TwoColumnLayout.css */
+
+.two-column-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.title-column {
+  flex: 1; /* Takes up available space */
+}
+
+.content-column {
+  flex: 2; /* Takes up more space than the title column */
+  text-align: justify;
+}
