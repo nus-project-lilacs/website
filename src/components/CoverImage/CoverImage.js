@@ -5,7 +5,7 @@ import coverImage from "./lilacs.png";
 const CoverImage = () => {
   return (
     <Grid item justifySelf={"center"} marginTop="20px">
-      <img src={coverImage} alt="Lilacs Picture" />
+      <img src={coverImage} />
     </Grid>
   );
 };
