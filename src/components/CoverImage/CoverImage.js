@@ -1,10 +1,13 @@
 import React from "react";
+import Grid from "@mui/material/Grid";
+import coverImage from "./lilacs.png";
 
 const CoverImage = () => {
   return (
-    <div className="cover-image">
-      <h1>Project Lilacs</h1>
-      <h2>Helping the elderly in our community</h2>
-    </div>
+    <Grid item justifySelf={"center"} marginTop="20px">
+      <img src={coverImage} alt="Lilacs Picture" />
+    </Grid>
   );
 };
+
+export default CoverImage;
