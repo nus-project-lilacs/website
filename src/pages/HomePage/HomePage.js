@@ -2,7 +2,6 @@ import React from "react";
 import CoverImage from "../../components/CoverImage/CoverImage";
 import Grid from "@mui/material/Grid";
 import Intro from "../../components/About/Intro";
-import content from "../content.txt";
 
 const HomePage = () => {
   return (
