@@ -1,0 +1,27 @@
+/*about*/
+
+#about{
+    padding: 100px 300px;
+    color:rgb(54, 9, 95);
+}
+@media screen and (max-width: 950px) {
+    #about{
+        padding: 100px;
+    }
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1{
+    flex-basis: 35%;
+
+}
+
+.about-col-2{
+    flex-basis: 50%;
+
+
+}
