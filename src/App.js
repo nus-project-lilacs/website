@@ -4,7 +4,7 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
 import Sponsors from "./pages/Sponsors/Sponsors";
-import Resources from "./pages/Resources/Resources";
+import Resources from "./pages/Resources";
 
 function App() {
   return (
