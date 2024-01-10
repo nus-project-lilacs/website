@@ -51,6 +51,8 @@ const featuredPosts = [
 ];
 
 export default function ResourcesPage() {
+
+
   return (
     <div>
       <CssBaseline />
