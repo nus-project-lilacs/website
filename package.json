@@ -43,5 +43,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Wintech-Wonderland-Project-Lilacs/project_lilacs.git",
+  "author": "ZXinyu25 <E0968300@U.NUS.EDU>",
+  "license": "MIT"
 }
