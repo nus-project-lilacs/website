@@ -24,8 +24,8 @@ function Footer() {
                     </div>
                     <div class='footer-link-items'>
                         <h2>Resources</h2>
-                        <Link to='/'>Articles</Link>
-                        <Link to='/'>Videos</Link>
+                        <Link to='/resources'>Articles</Link>
+                        <Link to='/resources'>Videos</Link>
                     </div>
                 </div>
                 <div className='footer-link-wrapper'>
@@ -36,7 +36,7 @@ function Footer() {
                     </div>
                     <div class='footer-link-items'>
                         <h2>Support Us</h2>
-                        <Link to='/Sponsor'>Become a sponsor</Link>
+                        <Link to='/sponsors'>Become a sponsor</Link>
 
                     </div>
                 </div>

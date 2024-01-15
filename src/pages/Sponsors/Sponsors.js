@@ -2,9 +2,11 @@ import React from 'react'
 import { SponsorList } from '../Sponsors/SponsorList'
 import SponsorItem from '../Sponsors/SponsorItem';
 import "../Sponsors/Sponsors.css";
+import Footer from "../../components/Footer/Footer";
 
 function Sponsors() {
     return (
+        <div>   
         <div className='sponsors'>
             <h1 className='sponsorTitle'>Sponsors</h1>
             <div className="sponsorList">
@@ -20,6 +22,9 @@ function Sponsors() {
             })}
             </div>
         </div>
+        <Footer />
+        </div>
+        
     );
 }
 
