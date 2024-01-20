@@ -1,4 +1,3 @@
-import CoverImage from "../Sponsors/coverimage.png";
 import Kotex from "../Sponsors/logos/kotex.png";
 import Blood from "../Sponsors/logos/blood.png";
 import Venus from "../Sponsors/logos/venus.jpeg";
