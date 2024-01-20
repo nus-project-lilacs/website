@@ -6,6 +6,9 @@ import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
 import Sponsors from "./pages/Sponsors/Sponsors";
 import Resources from "./pages/Resources";
+import ResourceDetails from "./components/ResourceDetails";
+
+
 
 function App() {
   //const [data, setData] = useState(null);
@@ -32,9 +35,10 @@ function App() {
           <NavBar />
         </header>
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/sponsors" exact element={<Sponsors />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/resource/:id" element={<ResourceDetails />} />
         </Routes>
       </div>
     </Router>

@@ -29,26 +29,19 @@ const Resources = () => {
 
   return (
     <Grid container spacing={4}>
-      {data.map((resource) => {
-        console.log("Resource:", resource);
-        console.log("Title:", resource.attributes.title);
-        console.log("Published Date:", resource.attributes.publishedDate);
-        console.log("Content:", resource.attributes.content[0].children[0].text);
-  
-        return (
-          <FeaturedPost
-            key={resource.id}
-            post={{
-              title: resource.attributes.title,
-              date: resource.attributes.publishedDate,
-              description: String(resource.attributes.content[0].children[0].text), // Convert to string
-              image: "https://source.unsplash.com/random?wallpapers",
-              imageLabel: "Image Text",
-            }}
-          />
-        );
-
-      })}
+      {data.map((resource) => (
+        <FeaturedPost
+          key={resource.id}
+          post={{
+            id: resource.id, // Pass the id to FeaturedPost
+            title: resource.attributes.title,
+            date: resource.attributes.publishedDate,
+            description: String(resource.attributes.content[0].children[0].text),
+            image: "https://source.unsplash.com/random?wallpapers",
+            imageLabel: "Image Text",
+          }}
+        />
+      ))}
     </Grid>
   );
 };
