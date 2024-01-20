@@ -1,75 +1,64 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import MainFeaturedPost from "../components/MainFeaturedPost";
 import FeaturedPost from "../components/FeaturedPost";
 import Footer from "../components/Footer";
+import axios from "axios";
 
-const mainFeaturedPost = {
-  title: "Title of a longer featured blog post",
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: "https://source.unsplash.com/random?wallpapers",
-  imageText: "main image description",
-  linkText: "Continue reading…",
-};
 
-const featuredPosts = [
-  {
-    title: "Featured post",
-    date: "Nov 12",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random?wallpapers",
-    imageLabel: "Image Text",
-  },
-  {
-    title: "Post title",
-    date: "Nov 11",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random?wallpapers",
-    imageLabel: "Image Text",
-  },
-  {
-    title: "Post title",
-    date: "Nov 11",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random?wallpapers",
-    imageLabel: "Image Text",
-  },
-  {
-    title: "Post title",
-    date: "Nov 11",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random?wallpapers",
-    imageLabel: "Image Text",
-  },
-];
+const Resources = () => {
+  const [data, setData] = useState('');
 
-export default function ResourcesPage() {
+  useEffect(() => {
+    console.log("test");
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:1337/api/resources`);
+        const data = await response.json();
+        setData(data);
+        console.log(data.data[0]);
+        console.log(data.data[0].attributes.title); //can use this to check if the data is fetched correctly -petrine
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
+    fetchData();
+  }, []);
 
   return (
-    <div>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
-          </Grid>
-        </main>
-      </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
-    </div>
-  );
-}
+      <>
+        {/* <h1>{data.data[0].attributes.title}</h1> */}
+        <h1>test</h1>
+      </>
+    );
+};
+
+export default Resources;
+
+// export async function getServerSideProps() {
+//   console.log("Hello, World!");
+//   try {
+//     const postsRes = await axios.get("http://localhost:1337/api/resources");
+//     console.log(postsRes.data);
+
+//     return {
+//       // props: {
+//       //   posts: postsRes.data,
+//       // },
+//     };
+//   } catch (error) {
+//     console.error("Error fetching data:", error.message);
+//     return {
+//       props: {
+//         posts: [],
+//       },
+//     };
+//   }
+// }
+
+
+
