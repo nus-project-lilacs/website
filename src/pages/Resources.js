@@ -10,56 +10,52 @@ import axios from "axios";
 
 
 const Resources = () => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     console.log("test1");
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:1337/api/resources`);
-        const data = await response.json();
-        setData(data);
-        console.log(data.data[0]);
-        console.log(data.data[0].attributes.title); //can use this to check if the data is fetched correctly -petrine
+        const response = await axios.get("http://localhost:1337/api/resources");
+        setData(response.data.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
-    };
-
+    }
     fetchData();
   }, []);
 
+  console.log(data);
+
   return (
-      <>
-        {/* <h1>{data.data[0].attributes.title}</h1> */}
-        <h1>{data.data[0].attributes.title}</h1>
-        <h1>{data.data[1].attributes.title}</h1>
-      </>
-    );
+    <Grid container spacing={4}>
+      {data.map((resource) => {
+        console.log("Resource:", resource);
+        console.log("Title:", resource.attributes.title);
+        console.log("Published Date:", resource.attributes.publishedDate);
+        console.log("Content:", resource.attributes.content[0].children[0].text);
+  
+        return (
+          <FeaturedPost
+            key={resource.id}
+            post={{
+              title: resource.attributes.title,
+              date: resource.attributes.publishedDate,
+              description: String(resource.attributes.content[0].children[0].text), // Convert to string
+              image: "https://source.unsplash.com/random?wallpapers",
+              imageLabel: "Image Text",
+            }}
+          />
+        );
+
+      })}
+    </Grid>
+  );
 };
 
 export default Resources;
 
-// export async function getServerSideProps() {
-//   console.log("Hello, World!");
-//   try {
-//     const postsRes = await axios.get("http://localhost:1337/api/resources");
-//     console.log(postsRes.data);
 
-//     return {
-//       // props: {
-//       //   posts: postsRes.data,
-//       // },
-//     };
-//   } catch (error) {
-//     console.error("Error fetching data:", error.message);
-//     return {
-//       props: {
-//         posts: [],
-//       },
-//     };
-//   }
-// }
 
 
 
