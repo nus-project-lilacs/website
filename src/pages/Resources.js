@@ -13,7 +13,7 @@ const Resources = () => {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    console.log("test");
+    console.log("test1");
     const fetchData = async () => {
       try {
         const response = await fetch(`http://localhost:1337/api/resources`);
@@ -32,7 +32,8 @@ const Resources = () => {
   return (
       <>
         {/* <h1>{data.data[0].attributes.title}</h1> */}
-        <h1>test</h1>
+        <h1>{data.data[0].attributes.title}</h1>
+        <h1>{data.data[1].attributes.title}</h1>
       </>
     );
 };
