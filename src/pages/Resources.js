@@ -16,14 +16,23 @@ const Resources = () => {
     console.log("test1");
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:1337/api/resources");
+        const response = await axios.get("http://localhost:1337/api/resources", {
+          params: {
+            _limit: 10,
+            _fields: "id,attributes.title,attributes.publishedDate,attributes.content,coverImage.id,coverImage.url",
+          },
+        });
+        console.log("Full API Response:", response.data);
+        console.log("ResourceDetails:", response.data.data);
         setData(response.data.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
-    }
+    };
+    
     fetchData();
-  }, []);
+}, []);
+
 
   console.log(data);
 

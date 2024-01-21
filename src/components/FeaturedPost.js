@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "react-router-dom";
 
+
 function FeaturedPost(props) {
   const { post } = props;
 
@@ -32,7 +33,7 @@ function FeaturedPost(props) {
         <CardMedia
           component="img"
           sx={{ width: 160, display: { xs: "none", sm: "block" } }}
-          image={post.image}
+          image={post.coverImage}  // Update this line to use coverImage
           alt={post.imageLabel}
         />
       </Card>
