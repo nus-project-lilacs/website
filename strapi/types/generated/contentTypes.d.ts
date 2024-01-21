@@ -368,6 +368,7 @@ export interface ApiResourceResource extends Schema.CollectionType {
     singularName: 'resource';
     pluralName: 'resources';
     displayName: 'Resource';
+    description: '';
   };
   options: {
     draftAndPublish: true;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import CssBaseline from "@mui/material/CssBaseline";
+//import { Link } from "react-router-dom";
+//import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import MainFeaturedPost from "../components/MainFeaturedPost";
+//import Container from "@mui/material/Container";
+//import MainFeaturedPost from "../components/MainFeaturedPost";
 import FeaturedPost from "../components/FeaturedPost";
-import Footer from "../components/Footer";
+//import Footer from "../components/Footer";
 import axios from "axios";
 
 
@@ -16,10 +16,10 @@ const Resources = () => {
     console.log("test1");
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:1337/api/resources", {
+        const response = await axios.get("http://localhost:1337/api/resources?populate=*", {
           params: {
             _limit: 10,
-            _fields: "id,attributes.title,attributes.publishedDate,attributes.content,coverImage.id,coverImage.url",
+            _fields: "id,attributes.title,attributes.publishedDate,attributes.content, attributes.coverImage.url",
           },
         });
         console.log("Full API Response:", response.data);
@@ -42,12 +42,11 @@ const Resources = () => {
         <FeaturedPost
           key={resource.id}
           post={{
-            id: resource.id, // Pass the id to FeaturedPost
+            id: String(resource.id), // Pass the id to FeaturedPost
             title: resource.attributes.title,
             date: resource.attributes.publishedDate,
             description: String(resource.attributes.content[0].children[0].text),
-            image: "https://source.unsplash.com/random?wallpapers",
-            imageLabel: "Image Text",
+            image: resource.attributes.coverImage.url,
           }}
         />
       ))}
